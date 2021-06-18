@@ -366,10 +366,10 @@ void InertialSenseROS::INS1_callback(const ins_1_t * const msg)
 
 void InertialSenseROS::INS2_callback(const ins_2_t * const msg)
 {
-  if (!(msg->hdwStatus&HDW_STATUS_GPS_TIME_OF_WEEK_VALID))
-  { // Don't run if msg->timeOfWeek is not valid
-    return;
-  }
+  //if (!(msg->hdwStatus&HDW_STATUS_GPS_TIME_OF_WEEK_VALID))
+  //{ // Don't run if msg->timeOfWeek is not valid
+  //  return;
+  //}
 
   odom_msg.header.stamp = ros_time_from_week_and_tow(msg->week, msg->timeOfWeek);
   odom_msg.header.frame_id = frame_id_;
